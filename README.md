@@ -14,7 +14,7 @@ Using https: ```git clone --recurse https://github.com/TheRealDelep/sdl-template
 
 The first time you build the project (or if you delete the CMakeCache.txt) you may want to specify another generator and compiler than your os default.
 
-You can specify another generator with the -G option. ```cmake -G --help``` to see the list of available generators.
+You can specify another generator with the -G option. Run ```cmake -G --help``` to see the list of available generators.
 
 You can specify the compiler to use using ```-DCMAKE_C_COMPILER=<compiler>``` and ```-DCMAKE_CXX_COMPILER=<compiler>```
 
@@ -22,7 +22,7 @@ Example of a command generating a Makefile using clang and clang++
 
 ```cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -G "Unix Makefiles" -B build .```
 
-3. cd ./build/
-4. make
+3. Run ```cd ./build/```
+4. Run ```make```
 
 You should be up and running
