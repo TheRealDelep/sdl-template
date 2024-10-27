@@ -14,3 +14,14 @@ add_executable(${PROJECT_NAME} main.cpp ${SOURCES})
 add_subdirectory(libs/sdl)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3)
+
+if(WIN32)
+    set(SDL3_LIBRARY "sdl3.dll")
+elseif(UNIX)
+    set(SDL3_LIBRARY "sdl3.so")
+endif()
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND "${CMAKE_COMMAND}" -E copy_if_different
+        "$<TARGET_FILE_DIR:${PROJECT_NAME}>/libs/sdl/${SDL3_LIBRARY}" $<TARGET_FILE_DIR:${PROJECT_NAME}>
+)
